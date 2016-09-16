@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>CZ3006 Net-Centric Assignment II</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1 class="text-center">CZ3006 Assignment II</h1>
+            </div>
+            <form>
+                <div class="form-group row">
+                    <label for="username" class="col-sm-offset-3 col-sm-2 form-label">Username:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="apples" class="col-sm-offset-3 col-sm-2 form-label">Number of apples:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="apples" placeholder="Enter number of apples">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="oranges" class="col-sm-offset-3 col-sm-2 form-label">Number of oranges:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="oranges" placeholder="Enter number of oranges">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="bananas" class="col-sm-offset-3 col-sm-2 form-label">Number of bananas:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="bananas" placeholder="Enter number of bananas">
+                    </div>
+                </div>
+                <fieldset disabled>
+                    <div class="form-group row">
+                        <label for="total" class="col-sm-offset-3 col-sm-2 form-label">Total cost of order:</label>
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input type="text" class="form-control" id="total" placeholder="Total cost">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <br><br>
+                <fieldset class="form-group row">
+                    <legend class="col-form-legend col-sm-offset-3 col-sm-2">Payment Method</legend>
+                    <div class="col-sm-7">
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment" id="visa" value="visa"> Visa &nbsp;
+                        </label>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment" id="mastercard" value="mastercard"> MasterCard &nbsp;
+                        </label>
+                        <label class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment" id="discover" value="discover"> Discover
+                        </label>
+                    </div>
+                </fieldset>
+                <div class="form-group-row">
+                    <div class="col-sm-offset-7 col-sm-2">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="js/jquery-3.1.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
