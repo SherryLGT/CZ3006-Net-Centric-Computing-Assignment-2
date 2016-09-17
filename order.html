@@ -1,69 +1,77 @@
 <!DOCTYPE html>
 
 <html>
-
     <head>
         <title>CZ3006 Net-Centric Assignment II</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
         <div class="container">
             <div class="page-header">
-                <h1 class="text-center">CZ3006 Assignment II</h1>
+                <h1>CZ3006 Assignment 2</h1>
+                <h4>U1521416A - Sherry Lau Geok Teng</h4>
             </div>
-            <form>
+            <form action="receipt.php" method="post">
+                <div class="col-sm-offset-3 col-sm-5 alert alert-danger hidden" id="error" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    &nbsp;Invalid input. Please enter a valid number.
+                </div>
+                <div class="col-sm-offset-3 col-sm-5 alert alert-success hidden" id="error" role="alert">
+                    Successfully submitted order.
+                </div>
                 <div class="form-group row">
-                    <label for="username" class="col-sm-offset-3 col-sm-2 form-label">Username:</label>
+                    <label for="name" class="col-sm-offset-3 col-sm-2 form-label">Name:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="apples" class="col-sm-offset-3 col-sm-2 form-label">Number of apples:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" id="apples" placeholder="Enter number of apples">
+                        <input type="text" class="form-control" name="apples" id="apples" placeholder="Enter number of apples" required>
+                        <span class="help-text">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="oranges" class="col-sm-offset-3 col-sm-2 form-label">Number of oranges:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" id="oranges" placeholder="Enter number of oranges">
+                        <input type="text" class="form-control" name="oranges" id="oranges" placeholder="Enter number of oranges" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="bananas" class="col-sm-offset-3 col-sm-2 form-label">Number of bananas:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" id="bananas" placeholder="Enter number of bananas">
+                        <input type="text" class="form-control" name="bananas" id="bananas" placeholder="Enter number of bananas" required>
                     </div>
                 </div>
-                <fieldset disabled>
+                <fieldset>
                     <div class="form-group row">
-                        <label for="total" class="col-sm-offset-3 col-sm-2 form-label">Total cost of order:</label>
+                        <label for="total" class="col-sm-offset-3 col-sm-2 form-label">Total Cost:</label>
                         <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-addon">$</div>
-                                <input type="text" class="form-control" id="total" placeholder="Total cost">
+                                <input type="text" name="total" class="form-control" id="total" placeholder="Total cost">
                             </div>
                         </div>
                     </div>
                 </fieldset>
                 <br><br>
                 <fieldset class="form-group row">
-                    <legend class="col-form-legend col-sm-offset-3 col-sm-2">Payment Method</legend>
+                    <legend class="col-form-legend col-sm-offset-3 col-sm-2">Payment Method:</legend>
                     <div class="col-sm-7">
                         <label class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="payment" id="visa" value="visa"> Visa &nbsp;
+                            <input class="form-check-input" type="radio" name="payment" id="visa" value="Visa" checked> Visa &nbsp;
                         </label>
                         <label class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="payment" id="mastercard" value="mastercard"> MasterCard &nbsp;
+                            <input class="form-check-input" type="radio" name="payment" id="mastercard" value="Mastercard"> MasterCard &nbsp;
                         </label>
                         <label class="form-check-inline">
-                            <input class="form-check-input" type="radio" name="payment" id="discover" value="discover"> Discover
+                            <input class="form-check-input" type="radio" name="payment" id="discover" value="Discover"> Discover
                         </label>
                     </div>
                 </fieldset>
