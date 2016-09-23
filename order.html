@@ -5,8 +5,42 @@
         <title>CZ3006 Net-Centric Assignment II</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript">
+            var appleCost = 0.69;
+            var orangeCost = 0.59;
+            var bananaCost = 0.39;
+
+            function validator(event) {
+                var current = event.currentTarget;
+
+                if(!(/^\d+(\.0*)?$/).test(current.value)) {
+                    alert("You have entered an invalid number. Please enter a valid number.");
+                    current.focus();
+                    current.select();
+                }
+                
+                totalNode.value =  ((applesNode.value * appleCost) + (orangesNode.value * orangeCost) + (bananasNode.value * bananaCost)).toFixed(2);
+            }
+
+            function submit(event) {
+                if(nameNode.value == null || nameNode.value == "" || applesNode.value == null || applesNode.value == "" || orangesNode.value == null || orangesNode.value == "" || bananasNode.value == null || bananasNode.value == "") {
+                    event.preventDefault();
+                    alert("Please fill in all fields.");
+                    return false;
+                }
+                else {
+                    if(totalNode.value == "NaN") {
+                        event.preventDefault();
+                        alert("You have entered an invalid number. Please enter a valid number.");
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -15,38 +49,30 @@
                 <h1>CZ3006 Assignment 2</h1>
                 <h4>U1521416A - Sherry Lau Geok Teng</h4>
             </div>
-            <form action="receipt.php" method="post">
-                <div class="col-sm-offset-3 col-sm-5 alert alert-danger hidden" id="error" role="alert">
-                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                    <span class="sr-only">Error:</span>
-                    &nbsp;Invalid input. Please enter a valid number.
-                </div>
-                <div class="col-sm-offset-3 col-sm-5 alert alert-success hidden" id="error" role="alert">
-                    Successfully submitted order.
-                </div>
+            <form id="form" action="receipt.php" method="post">
                 <div class="form-group row">
                     <label for="name" class="col-sm-offset-3 col-sm-2 form-label">Name:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="apples" class="col-sm-offset-3 col-sm-2 form-label">Number of apples:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" name="apples" id="apples" placeholder="Enter number of apples" required>
+                        <input type="text" class="form-control" name="apples" id="apples" placeholder="Enter number of apples">
                         <span class="help-text">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="oranges" class="col-sm-offset-3 col-sm-2 form-label">Number of oranges:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" name="oranges" id="oranges" placeholder="Enter number of oranges" required>
+                        <input type="text" class="form-control" name="oranges" id="oranges" placeholder="Enter number of oranges">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="bananas" class="col-sm-offset-3 col-sm-2 form-label">Number of bananas:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" name="bananas" id="bananas" placeholder="Enter number of bananas" required>
+                        <input type="text" class="form-control" name="bananas" id="bananas" placeholder="Enter number of bananas">
                     </div>
                 </div>
                 <fieldset>
@@ -55,7 +81,7 @@
                         <div class="col-sm-3">
                             <div class="input-group">
                                 <div class="input-group-addon">$</div>
-                                <input type="text" name="total" class="form-control" id="total" placeholder="Total cost">
+                                <input type="text" name="total" class="form-control" id="total" placeholder="Total cost" onfocus = "this.blur();">
                             </div>
                         </div>
                     </div>
@@ -83,8 +109,19 @@
             </form>
         </div>
 
-        <script src="js/jquery-3.1.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/order.js"></script>
+        <script type="text/javascript">
+            var formNode = document.getElementById("form");
+            var nameNode = document.getElementById("name");
+            var applesNode = document.getElementById("apples");
+            var orangesNode = document.getElementById("oranges");
+            var bananasNode = document.getElementById("bananas");
+            var totalNode = document.getElementById("total");
+            var paymentNode = document.getElementById("payment");
+
+            applesNode.addEventListener("change", validator, false);
+            orangesNode.addEventListener("change", validator, false);
+            bananasNode.addEventListener("change", validator, false);
+            formNode.addEventListener("submit", submit, false);
+        </script>
     </body>
 </html>

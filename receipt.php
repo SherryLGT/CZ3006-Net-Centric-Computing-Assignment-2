@@ -4,10 +4,10 @@
     $bananaCost = 0.39;
 
     $name = $_POST['name'];
-    $noOfApples = $_POST['apples'];
-    $noOfOranges = $_POST['oranges'];
-    $noOfBananas = $_POST['bananas'];
-    $total = ($appleCost*$noOfApples) + ($orangeCost*$noOfOranges) + ($bananaCost*$noOfBananas);
+    $apples = $_POST['apples'];
+    $oranges = $_POST['oranges'];
+    $bananas = $_POST['bananas'];
+    $total = ($appleCost*$apples) + ($orangeCost*$oranges) + ($bananaCost*$bananas);
     $total = round($total, 2);
     $payment = $_POST['payment'];
 
@@ -25,7 +25,7 @@
         $data = array(0, 0, 0);
     }
     $file = fopen('order.txt', 'w');
-    fwrite($file, 'Total number of apples: '.(intval($data[0])+$noOfApples)."\r\n".'Total number of oranges: '.(intval($data[1])+$noOfOranges)."\r\n".'Total number of bananas: '.(intval($data[2])+$noOfBananas));
+    fwrite($file, 'Total number of apples: '.(intval($data[0])+$apples)."\r\n".'Total number of oranges: '.(intval($data[1])+$oranges)."\r\n".'Total number of bananas: '.(intval($data[2])+$bananas));
     fclose($file);
 ?>
 
@@ -57,18 +57,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><?php echo $name ?></td>
-                        <td><?php echo $noOfApples ?></td>
-                        <td><?php echo $noOfOranges ?></td>
-                        <td><?php echo $noOfBananas ?></td>
-                        <td><?php echo $total ?></td>
-                        <td><?php echo $payment ?></td>
+                        <td><?php print("$name") ?></td>
+                        <td><?php print("$apples") ?></td>
+                        <td><?php print("$oranges") ?></td>
+                        <td><?php print("$bananas") ?></td>
+                        <td><?php print("$total") ?></td>
+                        <td><?php print("$payment") ?></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
-        <script src="js/jquery-3.1.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
