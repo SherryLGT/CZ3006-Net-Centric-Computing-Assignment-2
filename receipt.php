@@ -33,7 +33,7 @@
     * Updates the records in the order.txt to reflect the total number of
     * apples, oranges and bananas ordered by all users.
     * Opens the existing text file and loop through each line to get the
-    *  value for each respective item.
+    * value for each respective item.
     * If the text file does not exist, a new text file will be created and
     * order will be recorded in.
     */
@@ -48,7 +48,8 @@
         // Loop through each line
         while($line = fgets($file)) {
             // Update the number value of the data
-            $data[$i] = explode(': ', $line)[1];
+            $temp = explode(': ', $line);
+            $data[$i] = $temp[1];
             // Increment to go next line
             $i++;
         }
